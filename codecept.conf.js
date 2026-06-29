@@ -13,8 +13,8 @@ exports.config = {
   helpers: {
     Playwright: {
       browser: 'chromium',
-      url: 'https://www.saucedemo.com/',
-      show: false
+      url: 'https://automationpratice.com.br',
+      show: true
     }
   },
   include: {

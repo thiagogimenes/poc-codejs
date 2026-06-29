@@ -1,34 +1,49 @@
 Feature('login-button');
 
-
-Scenario('login-button com usuário não cadastro', ({ I }) => {
-  I.amOnPage('https://www.saucedemo.com/'); 
-  I.fillField('user-name', 'standard_use');
-  I.fillField('password', 'secret_sauce');
-  I.click('login-button');
-  I.see('Epic sadface: Username and password do not match any user in this service')
+Scenario('Login com sucesso', ({ I }) => {
+  I.amOnPage('/login'); 
+  I.fillField('#user', 'thiago@mock.com');
+  I.fillField('#password', '123456');
+  I.click('#btnLogin');
+  I.see('Login realizado');
 });
 
-
-Scenario('login-button com usuário não informado', ({ I }) => {
-  I.amOnPage('https://www.saucedemo.com/'); 
-  I.fillField('password', 'secret_sauce');
-  I.click('login-button');
-  I.see('Epic sadface: Username is required')
+Scenario('Login com e-mail inválido', ({ I }) => {
+  I.amOnPage('/login'); 
+  I.fillField('#user', 'thiagomock');
+  I.fillField('#password', '123456');
+  I.click('#btnLogin');
+  I.see('E-mail inválido.');
 });
 
-
-Scenario('login-button com senha não informada', ({ I }) => {
-  I.amOnPage('https://www.saucedemo.com/'); 
-  I.fillField('user-name', 'standard_user');
-  I.click('login-button');
-  I.see('Epic sadface: Password is required')
+Scenario('Login com e-mail vazio', ({ I }) => {
+  I.amOnPage('/login'); 
+  I.fillField('#user', '');
+  I.fillField('#password', '123456');
+  I.click('#btnLogin');
+  I.see('E-mail inválido.');
 });
 
-Scenario('login-button com sucesso', ({ I }) => {
-  I.amOnPage('https://www.saucedemo.com/'); 
-  I.fillField('user-name', 'standard_user');
-  I.fillField('password', 'secret_sauce');
-  I.click('login-button');
-  I.see('Products')
+Scenario('Login com senha inválida', ({ I }) => {
+  I.amOnPage('/login'); 
+  I.fillField('#user', 'thiago@mock.com');
+  I.fillField('#password', '123');
+  I.click('#btnLogin');
+  I.see('Senha inválida.');
 });
+
+Scenario('Login com senha vazia', ({ I }) => {
+  I.amOnPage('/login'); 
+  I.fillField('#user', 'thiago@mock.com');
+  I.fillField('#password', '');
+  I.click('#btnLogin');
+  I.see('Senha inválida.');
+});
+
+Scenario('Clica no botão não tenho conta', ({ I }) => {
+  I.amOnPage('/login');
+  I.click('#createAccount');
+  I.see('Cadastro de usuário');
+})
+
+    

@@ -1,7 +1,7 @@
 name: Push Request Tests
 
 on:
-  push:
+  push_request:
     branches:
       - main
      

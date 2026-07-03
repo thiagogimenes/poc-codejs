@@ -4,7 +4,7 @@ Versão:
     codeceptjs: 3.6.7
 
 ### Site para testes
-> https://www.saucedemo.com/
+https://automationpratice.com.br/
 
 ### Passos para instalação
 

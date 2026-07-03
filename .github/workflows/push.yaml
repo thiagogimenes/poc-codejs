@@ -25,6 +25,18 @@ jobs:
       - name: Run CodeceptJS Tests
         run: npx codeceptjs run --steps
 
+      - name: List files
+        if: always()
+        run: |
+          echo "Diretório atual:"
+          pwd
+
+          echo "Arquivos do projeto:"
+          ls -la
+
+          echo "Estrutura completa:"
+          find .
+
       - name: Upload Report
         if: always()
         uses: actions/upload-artifact@v4

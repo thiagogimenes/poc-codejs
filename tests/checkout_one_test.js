@@ -1,7 +1,10 @@
 Feature('Cadastro de checkout');
 
+Before(({ I }) => {
+  I.amOnPage('/checkout-one');
+});
+
 Scenario('Cadastro de checkout com sucesso', ({ I }) => {
-    I.amOnPage('/checkout-one');
     I.fillField('#fname', 'Chuck');
     I.fillField('#lname', 'Norris');
     I.fillField('#cname', 'Industria Norris');
@@ -17,7 +20,6 @@ Scenario('Cadastro de checkout com sucesso', ({ I }) => {
 })
 
 Scenario('Cadastro de checkout sem firstName', ({ I }) => {
-    I.amOnPage('/checkout-one');
     I.fillField('#lname', 'Norris');
     I.fillField('#cname', 'Industria Norris');
     I.fillField('#email', 'chucknorris@mock.com');
@@ -32,7 +34,6 @@ Scenario('Cadastro de checkout sem firstName', ({ I }) => {
 })
 
 Scenario('Cadastro de checkout sem lastName', ({ I }) => {
-    I.amOnPage('/checkout-one');
     I.fillField('#fname', 'Chuck');
     I.fillField('#cname', 'Industria Norris');
     I.fillField('#email', 'chucknorris@mock.com');
@@ -47,7 +48,6 @@ Scenario('Cadastro de checkout sem lastName', ({ I }) => {
 })
 
 Scenario('Cadastro de checkout sem companyName', ({ I }) => {
-    I.amOnPage('/checkout-one');
     I.fillField('#fname', 'Chuck');
     I.fillField('#lname', 'Norris');
     I.fillField('#email', 'chucknorris@mock.com');
@@ -62,7 +62,6 @@ Scenario('Cadastro de checkout sem companyName', ({ I }) => {
 })
 
 Scenario('Cadastro de checkout sem emailAddress', ({ I }) => {
-    I.amOnPage('/checkout-one');
     I.fillField('#fname', 'Chuck');
     I.fillField('#lname', 'Norris');
     I.fillField('#cname', 'Industria Norris');
@@ -77,7 +76,6 @@ Scenario('Cadastro de checkout sem emailAddress', ({ I }) => {
 })
 
 Scenario('Cadastro de checkout sem country', ({ I }) => {
-    I.amOnPage('/checkout-one');
     I.fillField('#fname', 'Chuck');
     I.fillField('#lname', 'Norris');
     I.fillField('#cname', 'Industria Norris');
@@ -92,7 +90,6 @@ Scenario('Cadastro de checkout sem country', ({ I }) => {
 })
 
 Scenario('Cadastro de checkout sem state/city', ({ I }) => {
-    I.amOnPage('/checkout-one');
     I.fillField('#fname', 'Chuck');
     I.fillField('#lname', 'Norris');
     I.fillField('#cname', 'Industria Norris');
@@ -107,7 +104,6 @@ Scenario('Cadastro de checkout sem state/city', ({ I }) => {
 })
 
 Scenario('Cadastro de checkout sem zipcode', ({ I }) => {
-    I.amOnPage('/checkout-one');
     I.fillField('#fname', 'Chuck');
     I.fillField('#lname', 'Norris');
     I.fillField('#cname', 'Industria Norris');
@@ -122,7 +118,6 @@ Scenario('Cadastro de checkout sem zipcode', ({ I }) => {
 })
 
 Scenario('Cadastro de checkout sem full address', ({ I }) => {
-    I.amOnPage('/checkout-one');
     I.fillField('#fname', 'Chuck');
     I.fillField('#lname', 'Norris');
     I.fillField('#cname', 'Industria Norris');
@@ -137,7 +132,6 @@ Scenario('Cadastro de checkout sem full address', ({ I }) => {
 })
 
 Scenario('Cadastro de checkout sem additional notes', ({ I }) => {
-    I.amOnPage('/checkout-one');
     I.fillField('#fname', 'Chuck');
     I.fillField('#lname', 'Norris');
     I.fillField('#cname', 'Industria Norris');
@@ -153,21 +147,21 @@ Scenario('Cadastro de checkout sem additional notes', ({ I }) => {
 
 /*
 Scenario('Pagamento com Direct Bank Transfer sem dados do pagamento', ({ I }) => {
-    I.amOnPage('/checkout-one');
+    
     I.checkOption('//*[@id="html"]', 'Direct Bank Transfer')
     I.click('//*[@id="checkout_one"]/div/div/div[2]/div[2]/button')
     I.see('Preencha os dados de pagamento!')
 })
 
 Scenario('Pagamento com Mobile Banking sem dados do pagamento', ({ I }) => {
-    I.amOnPage('/checkout-one');
+    
     I.checkOption('//*[@id="html"]', '#headingTwo > div > [name="payment"]')
     I.click(':nth-child(2) > :nth-child(2) > .theme-btn-one')
     I.see('Preencha os dados de pagamento!')
 })
 
 Scenario('Pagamento com Paypal sem dados do pagamento', ({ I }) => {
-    I.amOnPage('/checkout-one');
+    
     I.checkOption('#html', '#headingThree > div > [name="payment"]')
     I.click(':nth-child(2) > :nth-child(2) > .theme-btn-one')
     I.see('Preencha os dados de pagamento!')

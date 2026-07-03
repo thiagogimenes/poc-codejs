@@ -1,7 +1,11 @@
 Feature('Cadastro de usuário');
 
+Before(({ I }) => {
+  I.amOnPage('/register');
+});
+
+
 Scenario('Cadastro com sucesso', ({ I }) => {
-    I.amOnPage('/register');
     I.fillField('#user', 'Chuck Norris');
     I.fillField('#email', 'chuck.norris@mock.com');
     I.fillField('#password', '123456');
@@ -10,7 +14,6 @@ Scenario('Cadastro com sucesso', ({ I }) => {
 })
 
 Scenario('Cadastro sem nome', ({ I }) => {
-    I.amOnPage('/register');
     I.fillField('#email', 'chuck.norris@mock.com');
     I.fillField('#password', '123456');
     I.click('#btnRegister');
@@ -18,7 +21,6 @@ Scenario('Cadastro sem nome', ({ I }) => {
 })
 
 Scenario('Cadastro sem informar e-mail', ({ I }) => {
-    I.amOnPage('/register');
     I.fillField('#user', 'Chuck Norris');
     I.fillField('#password', '123456');
     I.click('#btnRegister');
@@ -26,7 +28,6 @@ Scenario('Cadastro sem informar e-mail', ({ I }) => {
 })
 
 Scenario('Cadastro sem informar senha', ({ I }) => {
-    I.amOnPage('/register');
     I.fillField('#user', 'Chuck Norris');
     I.fillField('#email', 'chuck.norris@mock.com');
     I.click('#btnRegister');
@@ -34,7 +35,6 @@ Scenario('Cadastro sem informar senha', ({ I }) => {
 })
 
 Scenario('Cadastro informar senha inválida', ({ I }) => {
-    I.amOnPage('/register');
     I.fillField('#user', 'Chuck Norris');
     I.fillField('#email', 'chuck.norris@mock.com');
     I.fillField('#password', '1234');
@@ -43,14 +43,12 @@ Scenario('Cadastro informar senha inválida', ({ I }) => {
 })
 
 Scenario('Cadastro sem nome e sem email', ({ I }) => {
-    I.amOnPage('/register');
     I.fillField('#password', '123456');
     I.click('#btnRegister');
     I.see('O campo nome deve ser prenchido');
 })
 
 Scenario('Cadastro sem nome e sem senha', ({ I }) => {
-    I.amOnPage('/register');
     I.fillField('#email', 'chuck.norris@mock.com');
     I.click('#btnRegister');
     I.see('O campo nome deve ser prenchido');
@@ -58,7 +56,6 @@ Scenario('Cadastro sem nome e sem senha', ({ I }) => {
 })
 
 Scenario('Cadastro sem preencher formulário', ({ I }) => {
-    I.amOnPage('/register');
     I.click('#btnRegister');
     I.see('O campo nome deve ser prenchido');
 })

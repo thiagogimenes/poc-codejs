@@ -1,7 +1,10 @@
-Feature('login-button');
+Feature('Login');
+
+Before(({ I }) => {
+  I.amOnPage('/login');
+});
 
 Scenario('Login com sucesso', ({ I }) => {
-  I.amOnPage('/login'); 
   I.fillField('#user', 'thiago@mock.com');
   I.fillField('#password', '123456');
   I.click('#btnLogin');
@@ -9,7 +12,6 @@ Scenario('Login com sucesso', ({ I }) => {
 });
 
 Scenario('Login com e-mail inválido', ({ I }) => {
-  I.amOnPage('/login'); 
   I.fillField('#user', 'thiagomock');
   I.fillField('#password', '123456');
   I.click('#btnLogin');
@@ -17,7 +19,6 @@ Scenario('Login com e-mail inválido', ({ I }) => {
 });
 
 Scenario('Login com e-mail vazio', ({ I }) => {
-  I.amOnPage('/login'); 
   I.fillField('#user', '');
   I.fillField('#password', '123456');
   I.click('#btnLogin');
@@ -25,7 +26,6 @@ Scenario('Login com e-mail vazio', ({ I }) => {
 });
 
 Scenario('Login com senha inválida', ({ I }) => {
-  I.amOnPage('/login'); 
   I.fillField('#user', 'thiago@mock.com');
   I.fillField('#password', '123');
   I.click('#btnLogin');
@@ -33,7 +33,6 @@ Scenario('Login com senha inválida', ({ I }) => {
 });
 
 Scenario('Login com senha vazia', ({ I }) => {
-  I.amOnPage('/login'); 
   I.fillField('#user', 'thiago@mock.com');
   I.fillField('#password', '');
   I.click('#btnLogin');
@@ -41,7 +40,6 @@ Scenario('Login com senha vazia', ({ I }) => {
 });
 
 Scenario('Clica no botão não tenho conta', ({ I }) => {
-  I.amOnPage('/login');
   I.click('#createAccount');
   I.see('Cadastro de usuário');
 })

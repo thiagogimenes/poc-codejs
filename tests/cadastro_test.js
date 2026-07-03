@@ -4,7 +4,6 @@ Before(({ I }) => {
   I.amOnPage('/register');
 });
 
-
 Scenario('Cadastro com sucesso', ({ I }) => {
     I.fillField('#user', 'Chuck Norris');
     I.fillField('#email', 'chuck.norris@mock.com');
